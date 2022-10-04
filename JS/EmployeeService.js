@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     validName();
     salaryRange();
 });
+
 function validName(){
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
@@ -20,6 +21,8 @@ function validName(){
         }
     });
 }
+
+
 /** set event listener on salary range*/
 function salaryRange(){
     const salary = document.querySelector('#salary');
@@ -94,3 +97,31 @@ const getInputElementValue=(id)=>{
     return value;
 }
 
+const resetForm = () =>{
+    setValue('#name',''); 
+    unsetSelectedValues('[name=profile]'); 
+    unsetSelectedValues('[name=gender]'); 
+    unsetSelectedValues('[name=department]'); 
+    setValue('#salary',''); 
+    setValue('#notes',''); 
+    setValue('#day','1'); 
+    setValue('#month', 'January'); 
+    setValue( '#year', '2022');
+}
+
+const unsetSelectedValues = (propertyValue) => {
+    let allItems = document.querySelectorall(propertyValue); 
+    allItems.forEach(item => {
+    item.checked = false; 
+    }); 
+}
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id); 
+    element.textContent = value;
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id); 
+    element.value = value;
+}
